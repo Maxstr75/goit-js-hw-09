@@ -2,7 +2,7 @@
 import flatpickr from 'flatpickr';
 // Дополнительный импорт стилей
 import 'flatpickr/dist/flatpickr.min.css';
-
+// Отображение уведомления пользователю
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const refs = {
