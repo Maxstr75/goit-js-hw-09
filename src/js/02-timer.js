@@ -62,10 +62,10 @@ function getTimerValues() {
 }
 
 function updateClockFace({ days, hours, minutes, seconds }) {
-  refs.days.textContent = pad(days);
-  refs.hours.textContent = pad(hours);
-  refs.minutes.textContent = pad(minutes);
-  refs.seconds.textContent = pad(seconds);
+  refs.days.textContent = addLeadingZero(days);
+  refs.hours.textContent = addLeadingZero(hours);
+  refs.minutes.textContent = addLeadingZero(minutes);
+  refs.seconds.textContent = addLeadingZero(seconds);
 }
 
 refs.btnStart.addEventListener('click', () => {
@@ -76,7 +76,7 @@ refs.btnStart.addEventListener('click', () => {
   timerId = setInterval(getTimerValues, 1000);
 });
 
-function pad(value) {
+function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
 
@@ -90,11 +90,11 @@ function convertMs(ms) {
   // Оставшиеся дни
   const days = Math.floor(ms / day);
   // Оставшиеся часы
-  const hours = pad(Math.floor((ms % day) / hour));
+  const hours = addLeadingZero(Math.floor((ms % day) / hour));
   // Оставшиеся минуты
-  const minutes = pad(Math.floor(((ms % day) % hour) / minute));
+  const minutes = addLeadingZero(Math.floor(((ms % day) % hour) / minute));
   // Оставшиеся секунды
-  const seconds = pad(Math.floor((((ms % day) % hour) % minute) / second));
+  const seconds = addLeadingZero(Math.floor((((ms % day) % hour) % minute) / second));
 
   return { days, hours, minutes, seconds };
 }
