@@ -1,5 +1,4 @@
 const refs = {
-  bodyElement: document.querySelector('body'),
   startBtn: document.querySelector('[data-start]'),
   stopBtn: document.querySelector('[data-stop]'),
 };
@@ -28,5 +27,5 @@ function onStopBtnClick() {
 }
 
 function getBodyColor() {
-  refs.bodyElement.style.backgroundColor = getRandomHexColor();
+  document.body.style.backgroundColor = getRandomHexColor();
 }
